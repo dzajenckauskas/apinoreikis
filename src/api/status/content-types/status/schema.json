@@ -4,7 +4,7 @@
   "info": {
     "singularName": "status",
     "pluralName": "statuses",
-    "displayName": "StatusType",
+    "displayName": "Status",
     "description": ""
   },
   "options": {
