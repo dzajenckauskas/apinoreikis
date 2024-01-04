@@ -66,22 +66,6 @@
       },
       "type": "string"
     },
-    "showHouseNumber": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "boolean"
-    },
-    "showFlatNumber": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "boolean"
-    },
     "RCnumber": {
       "pluginOptions": {
         "i18n": {
@@ -89,14 +73,6 @@
         }
       },
       "type": "string"
-    },
-    "showRCnumber": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "boolean"
     },
     "areaSqM": {
       "pluginOptions": {
@@ -153,22 +129,6 @@
         }
       },
       "type": "biginteger"
-    },
-    "soldOrRented": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "boolean"
-    },
-    "reserved": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "boolean"
     },
     "images": {
       "type": "media",
@@ -238,6 +198,16 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::action-type.action-type"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "statusType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::status.status"
     }
   }
 }
