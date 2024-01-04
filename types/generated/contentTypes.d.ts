@@ -773,7 +773,7 @@ export interface ApiActionTypeActionType extends Schema.CollectionType {
   info: {
     singularName: 'action-type';
     pluralName: 'action-types';
-    displayName: 'ActionType';
+    displayName: 'Action';
     description: '';
   };
   options: {
@@ -881,7 +881,7 @@ export interface ApiHeatingTypeHeatingType extends Schema.CollectionType {
   info: {
     singularName: 'heating-type';
     pluralName: 'heating-types';
-    displayName: 'HeatingType';
+    displayName: 'Heating';
     description: '';
   };
   options: {
@@ -1090,6 +1090,12 @@ export interface ApiObjectObject extends Schema.CollectionType {
       'oneToOne',
       'api::status.status'
     >;
+    isNew: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1119,7 +1125,7 @@ export interface ApiStatusStatus extends Schema.CollectionType {
   info: {
     singularName: 'status';
     pluralName: 'statuses';
-    displayName: 'StatusType';
+    displayName: 'Status';
     description: '';
   };
   options: {
