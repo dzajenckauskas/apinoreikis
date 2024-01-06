@@ -970,7 +970,7 @@ export interface ApiObjectObject extends Schema.CollectionType {
   info: {
     singularName: 'object';
     pluralName: 'objects';
-    displayName: 'Object';
+    displayName: 'EstateObject';
     description: '';
   };
   options: {
@@ -1155,6 +1155,82 @@ export interface ApiObjectObject extends Schema.CollectionType {
   };
 }
 
+export interface ApiRecommendationRecommendation extends Schema.CollectionType {
+  collectionName: 'recommendations';
+  info: {
+    singularName: 'recommendation';
+    pluralName: 'recommendations';
+    displayName: 'Recommendation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    customer: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    text: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    rate: Attribute.Decimal &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 5;
+      }>;
+    image: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    action: Attribute.Relation<
+      'api::recommendation.recommendation',
+      'oneToOne',
+      'api::action-type.action-type'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::recommendation.recommendation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::recommendation.recommendation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::recommendation.recommendation',
+      'oneToMany',
+      'api::recommendation.recommendation'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiStatusStatus extends Schema.CollectionType {
   collectionName: 'statuses';
   info: {
@@ -1232,6 +1308,7 @@ declare module '@strapi/types' {
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::heating-type.heating-type': ApiHeatingTypeHeatingType;
       'api::object.object': ApiObjectObject;
+      'api::recommendation.recommendation': ApiRecommendationRecommendation;
       'api::status.status': ApiStatusStatus;
     }
   }
