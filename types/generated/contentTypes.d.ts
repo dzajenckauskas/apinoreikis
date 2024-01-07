@@ -893,6 +893,7 @@ export interface ApiContactFormContactForm extends Schema.CollectionType {
     email: Attribute.String & Attribute.Required;
     message: Attribute.Text & Attribute.Required;
     url: Attribute.String;
+    contents: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
