@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "price_inquiry_forms",
+  "info": {
+    "singularName": "price-inquiry-form",
+    "pluralName": "price-inquiry-forms",
+    "displayName": "PriceInquiryForm"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "comment": {
+      "type": "text"
+    }
+  }
+}

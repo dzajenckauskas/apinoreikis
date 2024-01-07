@@ -1156,6 +1156,46 @@ export interface ApiObjectObject extends Schema.CollectionType {
   };
 }
 
+export interface ApiPriceInquiryFormPriceInquiryForm
+  extends Schema.CollectionType {
+  collectionName: 'price_inquiry_forms';
+  info: {
+    singularName: 'price-inquiry-form';
+    pluralName: 'price-inquiry-forms';
+    displayName: 'PriceInquiryForm';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    phone: Attribute.String & Attribute.Required;
+    email: Attribute.String & Attribute.Required;
+    city: Attribute.String & Attribute.Required;
+    address: Attribute.String & Attribute.Required;
+    category: Attribute.Relation<
+      'api::price-inquiry-form.price-inquiry-form',
+      'oneToOne',
+      'api::category.category'
+    >;
+    comment: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::price-inquiry-form.price-inquiry-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::price-inquiry-form.price-inquiry-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRecommendationRecommendation extends Schema.CollectionType {
   collectionName: 'recommendations';
   info: {
@@ -1309,6 +1349,7 @@ declare module '@strapi/types' {
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::heating-type.heating-type': ApiHeatingTypeHeatingType;
       'api::object.object': ApiObjectObject;
+      'api::price-inquiry-form.price-inquiry-form': ApiPriceInquiryFormPriceInquiryForm;
       'api::recommendation.recommendation': ApiRecommendationRecommendation;
       'api::status.status': ApiStatusStatus;
     }
