@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "heating_types",
+  "collectionName": "object_states",
   "info": {
-    "singularName": "heating-type",
-    "pluralName": "heating-types",
-    "displayName": "HeatingType",
-    "description": ""
+    "singularName": "object-state",
+    "pluralName": "object-states",
+    "displayName": "ObjectState"
   },
   "options": {
     "draftAndPublish": false

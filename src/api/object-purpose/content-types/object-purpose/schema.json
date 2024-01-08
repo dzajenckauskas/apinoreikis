@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "heating_types",
+  "collectionName": "object_purposes",
   "info": {
-    "singularName": "heating-type",
-    "pluralName": "heating-types",
-    "displayName": "HeatingType",
+    "singularName": "object-purpose",
+    "pluralName": "object-purposes",
+    "displayName": "ObjectPurpose",
     "description": ""
   },
   "options": {

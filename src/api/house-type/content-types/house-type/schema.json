@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "heating_types",
+  "collectionName": "house_types",
   "info": {
-    "singularName": "heating-type",
-    "pluralName": "heating-types",
-    "displayName": "HeatingType",
-    "description": ""
+    "singularName": "house-type",
+    "pluralName": "house-types",
+    "displayName": "HouseType"
   },
   "options": {
     "draftAndPublish": false

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "price-inquiry-form",
     "pluralName": "price-inquiry-forms",
-    "displayName": "PriceInquiryForm"
+    "displayName": "ObjectPriceInquiryForm",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -38,6 +39,49 @@
     },
     "comment": {
       "type": "text"
+    },
+    "contents": {
+      "type": "json",
+      "required": false
+    },
+    "floorNumber": {
+      "type": "integer",
+      "min": 0
+    },
+    "floorsTotal": {
+      "type": "integer",
+      "min": 0
+    },
+    "roomsNumber": {
+      "type": "integer"
+    },
+    "areaSqM": {
+      "type": "decimal",
+      "min": 0
+    },
+    "houseBuildYear": {
+      "type": "string"
+    },
+    "landArea": {
+      "type": "decimal"
+    },
+    "objectPurpose": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::object-purpose.object-purpose"
+    },
+    "renovatedHouse": {
+      "type": "boolean"
+    },
+    "objectState": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::object-state.object-state"
+    },
+    "houseType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::house-type.house-type"
     }
   }
 }

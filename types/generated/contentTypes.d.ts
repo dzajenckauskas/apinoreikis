@@ -822,6 +822,81 @@ export interface ApiActionTypeActionType extends Schema.CollectionType {
   };
 }
 
+export interface ApiBlogPostBlogPost extends Schema.CollectionType {
+  collectionName: 'blog_posts';
+  info: {
+    singularName: 'blog-post';
+    pluralName: 'blog-posts';
+    displayName: 'BlogPost';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    shortContent: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.Blocks &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    images: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blog-post.blog-post',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blog-post.blog-post',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::blog-post.blog-post',
+      'oneToMany',
+      'api::blog-post.blog-post'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -917,7 +992,7 @@ export interface ApiHeatingTypeHeatingType extends Schema.CollectionType {
   info: {
     singularName: 'heating-type';
     pluralName: 'heating-types';
-    displayName: 'Heating';
+    displayName: 'HeatingType';
     description: '';
   };
   options: {
@@ -961,6 +1036,59 @@ export interface ApiHeatingTypeHeatingType extends Schema.CollectionType {
       'api::heating-type.heating-type',
       'oneToMany',
       'api::heating-type.heating-type'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiHouseTypeHouseType extends Schema.CollectionType {
+  collectionName: 'house_types';
+  info: {
+    singularName: 'house-type';
+    pluralName: 'house-types';
+    displayName: 'HouseType';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    value: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::house-type.house-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::house-type.house-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::house-type.house-type',
+      'oneToMany',
+      'api::house-type.house-type'
     >;
     locale: Attribute.String;
   };
@@ -1156,13 +1284,121 @@ export interface ApiObjectObject extends Schema.CollectionType {
   };
 }
 
+export interface ApiObjectPurposeObjectPurpose extends Schema.CollectionType {
+  collectionName: 'object_purposes';
+  info: {
+    singularName: 'object-purpose';
+    pluralName: 'object-purposes';
+    displayName: 'ObjectPurpose';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    value: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::object-purpose.object-purpose',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::object-purpose.object-purpose',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::object-purpose.object-purpose',
+      'oneToMany',
+      'api::object-purpose.object-purpose'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiObjectStateObjectState extends Schema.CollectionType {
+  collectionName: 'object_states';
+  info: {
+    singularName: 'object-state';
+    pluralName: 'object-states';
+    displayName: 'ObjectState';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    value: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::object-state.object-state',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::object-state.object-state',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::object-state.object-state',
+      'oneToMany',
+      'api::object-state.object-state'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiPriceInquiryFormPriceInquiryForm
   extends Schema.CollectionType {
   collectionName: 'price_inquiry_forms';
   info: {
     singularName: 'price-inquiry-form';
     pluralName: 'price-inquiry-forms';
-    displayName: 'PriceInquiryForm';
+    displayName: 'ObjectPriceInquiryForm';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1179,6 +1415,38 @@ export interface ApiPriceInquiryFormPriceInquiryForm
       'api::category.category'
     >;
     comment: Attribute.Text;
+    contents: Attribute.JSON;
+    floorNumber: Attribute.Integer &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    floorsTotal: Attribute.Integer &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    roomsNumber: Attribute.Integer;
+    areaSqM: Attribute.Decimal &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    houseBuildYear: Attribute.String;
+    landArea: Attribute.Decimal;
+    objectPurpose: Attribute.Relation<
+      'api::price-inquiry-form.price-inquiry-form',
+      'oneToOne',
+      'api::object-purpose.object-purpose'
+    >;
+    renovatedHouse: Attribute.Boolean;
+    objectState: Attribute.Relation<
+      'api::price-inquiry-form.price-inquiry-form',
+      'oneToOne',
+      'api::object-state.object-state'
+    >;
+    houseType: Attribute.Relation<
+      'api::price-inquiry-form.price-inquiry-form',
+      'oneToOne',
+      'api::house-type.house-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1345,10 +1613,14 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::action-type.action-type': ApiActionTypeActionType;
+      'api::blog-post.blog-post': ApiBlogPostBlogPost;
       'api::category.category': ApiCategoryCategory;
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::heating-type.heating-type': ApiHeatingTypeHeatingType;
+      'api::house-type.house-type': ApiHouseTypeHouseType;
       'api::object.object': ApiObjectObject;
+      'api::object-purpose.object-purpose': ApiObjectPurposeObjectPurpose;
+      'api::object-state.object-state': ApiObjectStateObjectState;
       'api::price-inquiry-form.price-inquiry-form': ApiPriceInquiryFormPriceInquiryForm;
       'api::recommendation.recommendation': ApiRecommendationRecommendation;
       'api::status.status': ApiStatusStatus;
