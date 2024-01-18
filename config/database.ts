@@ -6,6 +6,12 @@ module.exports = ({ env }) => {
   const connections = {
     mysql: {
       connection: {
+        filename: path.join(
+          __dirname,
+          "..",
+          "..",
+          env("DATABASE_FILENAME", ".tmp/data.db")
+        ),
         connectionString: env('DATABASE_URL'),
         host: env('DATABASE_HOST', 'localhost'),
         port: env.int('DATABASE_PORT', 3306),
@@ -28,6 +34,12 @@ module.exports = ({ env }) => {
     },
     mysql2: {
       connection: {
+        filename: path.join(
+          __dirname,
+          "..",
+          "..",
+          env("DATABASE_FILENAME", ".tmp/data.db")
+        ),
         host: env('DATABASE_HOST', 'localhost'),
         port: env.int('DATABASE_PORT', 3306),
         database: env('DATABASE_NAME', 'strapi'),
@@ -49,6 +61,12 @@ module.exports = ({ env }) => {
     },
     postgres: {
       connection: {
+        filename: path.join(
+          __dirname,
+          "..",
+          "..",
+          env("DATABASE_FILENAME", ".tmp/data.db")
+        ),
         connectionString: env('DATABASE_URL'),
         host: env('DATABASE_HOST', 'localhost'),
         port: env.int('DATABASE_PORT', 5432),
