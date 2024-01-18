@@ -216,6 +216,33 @@
         }
       },
       "type": "boolean"
+    },
+    "objectState": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::object-state.object-state"
+    },
+    "objectPurpose": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::object-purpose.object-purpose"
+    },
+    "landArea": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "test": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": []
     }
   }
 }

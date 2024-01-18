@@ -33,6 +33,15 @@
       },
       "type": "string",
       "required": true
+    },
+    "titleSingular": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
     }
   }
 }

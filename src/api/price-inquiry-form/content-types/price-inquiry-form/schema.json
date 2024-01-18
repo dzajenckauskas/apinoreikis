@@ -44,26 +44,8 @@
       "type": "json",
       "required": false
     },
-    "floorNumber": {
-      "type": "integer",
-      "min": 0
-    },
-    "floorsTotal": {
-      "type": "integer",
-      "min": 0
-    },
-    "roomsNumber": {
-      "type": "integer"
-    },
-    "areaSqM": {
-      "type": "decimal",
-      "min": 0
-    },
     "houseBuildYear": {
       "type": "string"
-    },
-    "landArea": {
-      "type": "decimal"
     },
     "objectPurpose": {
       "type": "relation",
@@ -82,6 +64,21 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::house-type.house-type"
+    },
+    "floorNumber": {
+      "type": "string"
+    },
+    "floorsTotal": {
+      "type": "string"
+    },
+    "roomsNumber": {
+      "type": "string"
+    },
+    "areaSqM": {
+      "type": "string"
+    },
+    "landArea": {
+      "type": "string"
     }
   }
 }

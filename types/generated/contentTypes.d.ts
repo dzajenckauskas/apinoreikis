@@ -799,6 +799,13 @@ export interface ApiActionTypeActionType extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    titleSingular: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -926,6 +933,12 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    singularTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1260,6 +1273,28 @@ export interface ApiObjectObject extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    objectState: Attribute.Relation<
+      'api::object.object',
+      'oneToOne',
+      'api::object-state.object-state'
+    >;
+    objectPurpose: Attribute.Relation<
+      'api::object.object',
+      'oneToOne',
+      'api::object-purpose.object-purpose'
+    >;
+    landArea: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    test: Attribute.DynamicZone<[]> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1416,21 +1451,7 @@ export interface ApiPriceInquiryFormPriceInquiryForm
     >;
     comment: Attribute.Text;
     contents: Attribute.JSON;
-    floorNumber: Attribute.Integer &
-      Attribute.SetMinMax<{
-        min: 0;
-      }>;
-    floorsTotal: Attribute.Integer &
-      Attribute.SetMinMax<{
-        min: 0;
-      }>;
-    roomsNumber: Attribute.Integer;
-    areaSqM: Attribute.Decimal &
-      Attribute.SetMinMax<{
-        min: 0;
-      }>;
     houseBuildYear: Attribute.String;
-    landArea: Attribute.Decimal;
     objectPurpose: Attribute.Relation<
       'api::price-inquiry-form.price-inquiry-form',
       'oneToOne',
@@ -1447,6 +1468,11 @@ export interface ApiPriceInquiryFormPriceInquiryForm
       'oneToOne',
       'api::house-type.house-type'
     >;
+    floorNumber: Attribute.String;
+    floorsTotal: Attribute.String;
+    roomsNumber: Attribute.String;
+    areaSqM: Attribute.String;
+    landArea: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
