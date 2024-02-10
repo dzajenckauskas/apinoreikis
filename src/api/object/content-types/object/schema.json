@@ -32,7 +32,7 @@
         }
       },
       "type": "string",
-      "required": true
+      "required": false
     },
     "quartal": {
       "pluginOptions": {
@@ -40,7 +40,8 @@
           "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "street": {
       "pluginOptions": {
@@ -234,15 +235,6 @@
         }
       },
       "type": "string"
-    },
-    "test": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "dynamiczone",
-      "components": []
     }
   }
 }

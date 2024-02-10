@@ -1132,13 +1132,13 @@ export interface ApiObjectObject extends Schema.CollectionType {
         };
       }>;
     district: Attribute.String &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     quartal: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1284,12 +1284,6 @@ export interface ApiObjectObject extends Schema.CollectionType {
       'api::object-purpose.object-purpose'
     >;
     landArea: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    test: Attribute.DynamicZone<[]> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
