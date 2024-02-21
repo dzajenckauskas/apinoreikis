@@ -880,6 +880,12 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    seo: Attribute.Component<'seo.seo', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1000,6 +1006,80 @@ export interface ApiContactFormContactForm extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactPageContactPage extends Schema.SingleType {
+  collectionName: 'contact_pages';
+  info: {
+    singularName: 'contact-page';
+    pluralName: 'contact-pages';
+    displayName: 'ContactPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    layout: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'seo.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    shortContent: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-page.contact-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-page.contact-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::contact-page.contact-page',
+      'oneToMany',
+      'api::contact-page.contact-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiHeatingTypeHeatingType extends Schema.CollectionType {
   collectionName: 'heating_types';
   info: {
@@ -1049,6 +1129,72 @@ export interface ApiHeatingTypeHeatingType extends Schema.CollectionType {
       'api::heating-type.heating-type',
       'oneToMany',
       'api::heating-type.heating-type'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiHomePageHomePage extends Schema.SingleType {
+  collectionName: 'home_pages';
+  info: {
+    singularName: 'home-page';
+    pluralName: 'home-pages';
+    displayName: 'HomePage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    layout: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'seo.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToMany',
+      'api::home-page.home-page'
     >;
     locale: Attribute.String;
   };
@@ -1284,6 +1430,12 @@ export interface ApiObjectObject extends Schema.CollectionType {
       'api::object-purpose.object-purpose'
     >;
     landArea: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'seo.seo'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1636,7 +1788,9 @@ declare module '@strapi/types' {
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
       'api::category.category': ApiCategoryCategory;
       'api::contact-form.contact-form': ApiContactFormContactForm;
+      'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::heating-type.heating-type': ApiHeatingTypeHeatingType;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::house-type.house-type': ApiHouseTypeHouseType;
       'api::object.object': ApiObjectObject;
       'api::object-purpose.object-purpose': ApiObjectPurposeObjectPurpose;
