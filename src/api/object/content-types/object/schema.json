@@ -245,6 +245,14 @@
         }
       },
       "component": "seo.seo"
+    },
+    "url": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
