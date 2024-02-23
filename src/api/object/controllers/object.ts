@@ -15,7 +15,7 @@ export default factories.createCoreController('api::object.object', ({ strapi })
         const { id } = ctx.params;
 
         const entity = await strapi.db.query('api::object.object').findOne({
-            where: { id: id },
+            where: { slug: id },
             populate: ['images']
         });
         if (entity.url) {
