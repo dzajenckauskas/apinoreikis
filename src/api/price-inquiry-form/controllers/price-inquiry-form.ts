@@ -26,7 +26,7 @@ export default factories.createCoreController('api::price-inquiry-form.price-inq
             // })
 
             await strapi.plugin('email').service('email').send({
-                to: ['1000kaktusu@gmail.com', 'info@noreikis.com', 'ernestas@urbanestate.lt'],
+                to: ['1000kaktusu@gmail.com', 'info@noreikis.com', 'ernestasno@gmail.com'],
                 from: 'info@noreikis.com',
                 replyTo: 'info@noreikis.com',
                 subject: `NEW price-inquiry-form form from: ${data.attributes.name}`,
