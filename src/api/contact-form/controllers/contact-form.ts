@@ -11,8 +11,8 @@ export default factories.createCoreController('api::contact-form.contact-form', 
         try {
             await strapi.plugin('email').service('email').send({
                 to: ['1000kaktusu@gmail.com', 'info@noreikis.com', 'ernestas@urbanestate.lt'],
-                from: process.env.SMTP_USERNAME,
-                replyTo: process.env.SMTP_USERNAME,
+                from: 'info@noreikis.com',
+                replyTo: 'info@noreikis.com',
                 subject: `NEW contact form from: ${data.attributes.name}`,
                 html: JSON.stringify(data, null, '___'),
             });
