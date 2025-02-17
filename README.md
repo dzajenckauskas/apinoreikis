@@ -1,57 +1,79 @@
-# 🚀 Getting started with Strapi
+# API Opklinika - Strapi CMS
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+## Overview
 
-### `develop`
+API Noreikis is the backend system for Noreikis, Noreikis is a real estate broker website designed to showcase estate listings and generate leads through optimized search engine visibility. This project is built with Strapi CMS to manage content and provide a structured API for the frontend application.
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+Website: [www.api.noreikis.com](https://www.api.noreikis.com)
 
-```
-npm run develop
-# or
-yarn develop
-```
 
-### `start`
+## Tech Stack
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+- **Backend:** Strapi CMS (Headless CMS)
+- **Database:** PostgreSQL
+- **Authentication:** JWT-based authentication
+- **Deployment:** VPS (Linux-based)
 
-```
-npm run start
-# or
-yarn start
-```
+## Features
 
-### `build`
+- **Custom API endpoints** to manage medical services, appointments, and content.
+- **Admin panel** for content and appointment management.
+- **Role-based authentication** for admins and medical professionals.
+- **SEO-friendly content management** for better discoverability.
+- **Secure REST API** with authentication and permissions.
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+## Setup & Installation
 
-```
-npm run build
-# or
-yarn build
-```
+### Prerequisites
 
-## ⚙️ Deployment
+Ensure you have the following installed:
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+- Node.js (>= 16.x)
+- npm or yarn
+- PostgreSQL
 
-## 📚 Learn more
+### Installation Steps
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/dzajenckauskas/api-opklinika.git
+   cd api-opklinika
+   ```
+2. Install dependencies:
+   ```sh
+   npm install  # or yarn install
+   ```
+3. Set up environment variables:
+   - Create a `.env` file in the root directory.
+   - Add necessary environment variables (e.g., database connection, Strapi admin credentials).
+4. Run database migrations and seed data if necessary.
+5. Start the development server:
+   ```sh
+   npm run develop  # or yarn develop
+   ```
+6. Access the Strapi admin panel at `http://localhost:1337/admin`.
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+## Deployment
 
-## ✨ Community
+- The project is deployed on a VPS with Nginx as a reverse proxy.
+- Uses **PM2** for process management.
+- CI/CD automation with **GitHub Actions**.
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+## Future Improvements
+
+- Implement **GraphQL API** support.
+- Add **multi-language content management**.
+- Improve **security and performance**.
+
+## Contributing
+
+Contributions are welcome! Feel free to fork the repo, submit issues, or suggest improvements.
+
+## License
+
+This project is licensed under the MIT License.
 
 ---
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+For any inquiries or collaborations, reach out via [GitHub](https://github.com/dzajenckauskas/).
+
