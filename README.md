@@ -1,4 +1,4 @@
-# API Opklinika - Strapi CMS
+# API Noreikis - Strapi CMS
 
 ## Overview
 
@@ -36,8 +36,8 @@ Ensure you have the following installed:
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/dzajenckauskas/api-opklinika.git
-   cd api-opklinika
+   git clone https://github.com/dzajenckauskas/apinoreikis.git
+   cd apinoreikis
    ```
 2. Install dependencies:
    ```sh
