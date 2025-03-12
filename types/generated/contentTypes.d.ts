@@ -1291,6 +1291,11 @@ export interface ApiObjectObject extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    status: Attribute.Relation<
+      'api::object.object',
+      'oneToOne',
+      'api::status.status'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
