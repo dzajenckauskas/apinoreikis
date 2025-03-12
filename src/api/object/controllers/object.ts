@@ -43,7 +43,7 @@ export default factories.createCoreController('api::object.object', ({ strapi })
 
         const entity = await strapi.db.query('api::object.object').findOne({
             where: { slug: id },
-            populate: ['images', 'status']
+            populate: ['deep']
         });
         if (entity.url) {
             const axiosResponse = await axios.request({
