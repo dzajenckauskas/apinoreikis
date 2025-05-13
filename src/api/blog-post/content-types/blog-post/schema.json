@@ -74,6 +74,18 @@
         }
       },
       "component": "seo.seo"
+    },
+    "fullContent": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "customField",
+      "options": {
+        "preset": "blockBaloon"
+      },
+      "customField": "plugin::ckeditor5video.CKEditor5Video"
     }
   }
 }
