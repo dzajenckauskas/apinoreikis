@@ -890,7 +890,7 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
       Attribute.CustomField<
         'plugin::ckeditor5video.CKEditor5Video',
         {
-          preset: 'blockBaloon';
+          preset: 'toolbar';
         }
       > &
       Attribute.SetPluginOptions<{
